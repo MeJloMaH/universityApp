@@ -1,0 +1,34 @@
+
+<div style="margin-bottom: 55px;" th:fragment="header">
+	<div class="fixed-top bg-light">
+		<nav class="navbar navbar-expand-lg bg-light">
+			<div class="container-fluid">
+
+				<a 	class="navbar-brand mb-0 h2" 
+					href="/home"> 
+					<span 	class="text-muted" 
+							style="font-size: 23px;"> 					
+							University timetable 
+					</span>
+				</a>
+				
+				
+				
+				<div style="padding-left: 60%;" th:insert="blocks/search :: search"></div>
+				
+				<form 	action="/auth/logout"
+						method="POST">
+						
+					<button class="btn btn-light" 
+							type="submit">
+						Logout
+					</button>
+					
+				</form>
+
+
+			</div>
+		</nav>
+	</div>
+</div>
+

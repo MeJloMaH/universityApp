@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:university}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:1111}
+  flyway:
+    locations: classpath:db/migration
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+system:
+  user:
+    password: 62391178-3b47-11ed-a261-0242ac120002
+
+server:
+  error:
+    whitelabel:
+      enabled: true
+    path: /error
+
+debug: true

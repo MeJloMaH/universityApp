@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Student</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js">
+	
+</script>
+
+</head>
+
+<body>
+	<div class="container">
+		<div>
+			<header th:insert="blocks/header :: header"></header>
+		</div>
+
+		<div class="p-3 mb-auto bg-light text-dark">
+
+			<div class="container">
+				<div th:if="${error}">
+					<p class="text-danger">
+						<span>Error:</span><span th:text="${error}"></span>
+					</p>
+				</div>
+
+
+				<div th:if="${user.id}">
+					<form th:action="@{/admin/users/{id}/role(id=${user.id})}"
+						th:object="${user}" method="post">
+
+						<input hidden type="text" th:field="*{id}" />
+
+
+						<div>
+						
+												
+							<div style="
+								margin-top: 10px; 
+								margin-bottom: 12px; 
+								padding-left: 10px;">
+							
+								Role
+							</div>
+							<select style="
+								inline-size: 20%;" 
+								class="form-select "
+								th:field="${user.role}">
+	
+								<option th:each="role : ${roles}" 
+									th:value="${role}"
+									th:text="${role}" 
+									th:selected="${role}">
+								</option>
+									
+							</select> 
+					
+						</div>
+
+						<input style="margin-top: 10px;" class="btn btn-light"
+							type="submit" value="Save" />
+					</form>
+					
+				</div>															
+
+				
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
